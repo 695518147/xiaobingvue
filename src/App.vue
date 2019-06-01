@@ -14,7 +14,7 @@
     import left from "./components/left/left.vue"
 
     //配置后台域名
-    const baseRequestUrl="http://192.168.1.103:8080";
+    const baseRequestUrl="http://localhost:7070";
 
 
     export default {
