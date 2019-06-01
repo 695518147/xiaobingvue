@@ -1,7 +1,6 @@
-const webpack = require('webpack')
 module.exports = {
     //部署应用包时的基本 URL
-    publicPath: process.env.NODE_ENV === 'production' ? '/online/' : './',
+    publicPath: './',
     //当运行 vue-cli-service build 时生成的生产环境构建文件的目录
     outputDir: './dist',
     //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录
@@ -13,14 +12,6 @@ module.exports = {
     // 生产环境是否生成 sourceMap 文件 sourceMap的详解请看末尾
     productionSourceMap: true,
 
-    //可以在正式环境下关闭错误报告 console.log...
-    configureWebpack: config => {
-        if (process.env.NODE_ENV === 'production') {
-            // 为生产环境修改配置...
-        } else {
-            // 为开发环境修改配置...
-        }
-    },
     // css相关配置
     css: {
         // 是否使用css分离插件 ExtractTextPlugin 生产环境下是true,开发环境下是false

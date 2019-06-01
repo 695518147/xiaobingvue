@@ -14,15 +14,13 @@
 
     export default {
         name: 'left',
-        props: ['orders','order'],
+        props: ['orders', 'order'],
         methods: {
             showContent: function (index) {
                 this.order = this.orders[index];
             }
-        },mounted() {
-            console.log(this.order)
         },
-        components:{right}
+        components: {right}
 
     };
 
