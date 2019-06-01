@@ -56,3 +56,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 |-- package.json       	     # 项目基本信息   
 |-- postcss.config.js   	 	# CSS预处理器(此处默认启用autoprefixer)    
 
+
+####1.发布步骤
+1.npm run build
+2。docker-compose up --build -d
+

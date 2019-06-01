@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <ul class="nav nav-pills">
-            <li v-for="(orderType, index) in orderTypes" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
+            <li v-for="(orderType, index) in orderTypes" :key="index" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
         </ul>
@@ -14,7 +14,7 @@
     import left from "./components/left/left.vue"
 
     //配置后台域名
-    const baseRequestUrl="http://localhost:7070";
+    const baseRequestUrl="http://120.78.205.51:7070";
 
 
     export default {
