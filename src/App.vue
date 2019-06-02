@@ -14,7 +14,7 @@
     import left from "./components/left/left.vue"
 
     //配置后台域名
-    const baseRequestUrl="http://120.78.205.51:7070";
+    // const baseRequestUrl="http://120.78.205.51:7070";
 
 
     export default {
@@ -28,8 +28,7 @@
             }
         },
         mounted() {
-            console.log(baseRequestUrl)
-            axios.get(baseRequestUrl + '/xiaobing/orderTypes')
+            axios.get(process.env.VUE_APP_INDEX_BASE_URL + '/xiaobing/orderTypes')
                 .then(response => {
                     this.orderTypes = response.data;
                     this.orders = this.orderTypes[0].orders;

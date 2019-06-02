@@ -17,4 +17,8 @@ new Vue({
     render: h => h(App),
 }).$mount('#app');
 
+console.log("process.env.VUE_APP_INDEX_BASE_URL")
+console.log(process.env.VUE_APP_INDEX_BASE_URL);
+console.log(process.env.NODE_ENV)
+
 
