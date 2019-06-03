@@ -33,13 +33,13 @@ npm run test:unit
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
+### vue-cli3 目录结构
 |-- dist                       # 打包后文件夹	          
-|-- public                     # 静态文件夹           		                  
+|-- public                     # 静态文件夹  copy         		                  
 |   |-- favicon.ico				   
 |   |-- index.html					#入口页面  
 |-- src                        # 源码目录           
-|   |--assets						# 模块资源  
+|   |--assets						# 静态资源   会生成文件指纹
 |   |--components					# vue公共组件  
 |   |--views 						  
 |   |--App.vue                                          # 页面入口文件  
@@ -60,4 +60,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ####1.发布步骤
 1.npm run build
 2。docker-compose up --build -d
+
+####2.开发模式启动
+1.npm run serve
+
 
