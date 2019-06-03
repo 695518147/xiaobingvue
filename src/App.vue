@@ -40,8 +40,10 @@
             changeLeft:function(index){
                 this.orders = this.orderTypes[index].orders;
                 this.active = index;
+                this.order = this.orderTypes[index].orders[0];
             }
         }
     }
 
 </script>
+
