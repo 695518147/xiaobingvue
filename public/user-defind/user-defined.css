@@ -2,10 +2,18 @@
     position: relative;
     box-sizing: border-box;
     width: 35%;
-    height: 76%;
     background: #4d5e70 bottom;
     float: left;
-    height: 630px;
+    height: 34rem;
+}
+
+.rightContent {
+    position: relative;
+    box-sizing: border-box;
+    width: 65%;
+    height: 34rem;
+    float: left;
+    background-color: #fff;
 }
 
 #tab_header p {
@@ -30,14 +38,6 @@
     float: left;
 }
 
-.rightContent {
-    position: relative;
-    box-sizing: border-box;
-    width: 65%;
-    height: 630px;
-    float: left;
-    background-color: #fff;
-}
 
 .btn {
     padding: 5px;
