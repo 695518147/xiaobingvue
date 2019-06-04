@@ -4,14 +4,14 @@
     width: 35%;
     background: #4d5e70 bottom;
     float: left;
-    height: 34rem;
+    height: 35rem;
 }
 
 .rightContent {
     position: relative;
     box-sizing: border-box;
     width: 65%;
-    height: 34rem;
+    height: 35rem;
     float: left;
     background-color: #fff;
 }
