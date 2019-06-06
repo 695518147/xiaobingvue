@@ -1,6 +1,18 @@
+<!--suppress ALL -->
 <template>
     <div id="app">
-        <ul class="nav nav-pills">
+        <div class="navbar navbar-default ace-save-state">
+            <div class="navbar-container ace-save-state" id="navbar-container">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand center">
+                        <small>
+                            小冰智能机器人
+                        </small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ul id="tab_header" class="nav nav-pills">
             <li v-for="(orderType, index) in orderTypes" :key="index" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
@@ -10,12 +22,8 @@
     </div>
 </template>
 <script type="text/javascript">
-    import axios from 'axios'
     import left from "./components/left/left.vue"
-
-    //配置后台域名
-    // const baseRequestUrl="http://120.78.205.51:7070";
-
+    import {ordertype} from "./assets/request"
 
     export default {
         name: "app",
@@ -27,8 +35,8 @@
                 active:0
             }
         },
-        mounted() {
-            axios.get(process.env.VUE_APP_INDEX_BASE_URL + '/xiaobing/orderTypes')
+        created() {
+            ordertype().getOrdertypes()
                 .then(response => {
                     this.orderTypes = response.data;
                     this.orders = this.orderTypes[0].orders;
@@ -46,4 +54,14 @@
     }
 
 </script>
+
+
+<style scoped>
+    @import "/bootstrap-jq/css/common.css";
+    @import "/bootstrap-jq/css/flat-ui.min.css";
+    @import "/bootstrap-jq/css/bootstrap.min.css";
+    @import "/bootstrap-jq/css/ace.min.css";
+    @import "/bootstrap-jq/css/fonts.googleapis.com.css";
+    @import "/user-defind/user-defined.css";
+</style>
 

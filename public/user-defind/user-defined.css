@@ -17,7 +17,7 @@
 }
 
 #tab_header p {
-    margin: 0px 0 0px;
+    margin: 4px 4px;
     line-height: 1;
 }
 
@@ -103,3 +103,28 @@ body {
 .list-group-item {
     border: 0px solid #ddd;
 }
+
+.nav>li>a {
+    padding: 5px 15px;
+}
+
+/* 适配 */
+@media screen and (min-width: 350px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 19px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    html {
+        font-size: 29px;
+    }
+}
+

@@ -21,7 +21,7 @@ module.exports = {
         // css预设器配置项
         loaderOptions: {},
         // 启用 CSS modules for all css / pre-processor files.
-        modules: false
+        modules: true
     },
 // webpack-dev-server 相关配置
     devServer: { // 设置代理
@@ -29,10 +29,10 @@ module.exports = {
         host: '0.0.0.0', //ip地址
         port: 8085, //端口
         https: false, //false关闭https，true为开启
-        open: true, //自动打开浏览器
+        // open: true, //自动打开浏览器
         proxy: {
-            '/api': { //本地
-                target: 'http://localhost:8080/',
+            '/xiaobing': { //本地
+                target: process.env.VUE_APP_INDEX_BASE_URL,
                 // 如果要代理 websockets
                 ws: true,
                 changeOrigin: true
@@ -48,5 +48,6 @@ module.exports = {
             }
         }
     },
+
 
 }
