@@ -4,12 +4,13 @@ import axios from "axios"
 
 const INDEX_BASE_URL =process.env.VUE_APP_INDEX_BASE_URL;
 const SERVICE_BASE_URL =process.env.VUE_APP_SERVICE_BASE_URL;
+
 export function tip() {
 
     return{
         //获取提示
         async getTips(){
-            return await axios.get(SERVICE_BASE_URL+"/xiaobing/tips");
+            return await axios.get(INDEX_BASE_URL+"/xiaobing/tips");
         }
     }
 

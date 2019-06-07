@@ -24,6 +24,9 @@
 </template>
 
 <script>
+
+    import {tip} from "../../assets/request"
+
     /** 弹窗组件*/
     export default {
         name: "tip",
@@ -60,7 +63,7 @@
         },
         data(){
             return {
-                message:"<p>快叫爸爸</p>"
+                message:"aaaaaaa"
             }
         },
         methods: {
@@ -68,6 +71,12 @@
                 this.isShow = false;
                 this.$emit("on-close");
             }
+        },
+        created() {
+            let that = this;
+            tip().getTips().then(response => {
+                that.message = response.data[0].tipContent;
+            });
         }
     };
 </script>
@@ -118,7 +127,7 @@
             // 头部title的背景 居中圆角等属性。
             // 没有图片就把background-image注释掉
             background-image: url("../../assets/c.jpg");
-            width: 20rem;
+            width: 18rem;
             height: 3rem;
             display: flex;
             justify-content: center;
@@ -132,7 +141,7 @@
             display: flex;
             justify-content: center;
             align-content: center;
-            width: 20rem;
+            width: 18rem;
             height: 18rem;
             padding: 22px 0 47px 0;
             border-bottom-left-radius: 10px;

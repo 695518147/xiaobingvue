@@ -1,7 +1,7 @@
 <template>
     <div id="left">
         <div class="leftMeun show" id="leftMeun" style="overflow-y: scroll;">
-            <div v-for="(order,index) in orders" :class="index===active?'meun-item meun-item-active':'meun-item'" :key="index" v-on:click="showContent(index)">
+            <div v-for="(order,index) in orders" :class="{'meun-item':true, 'meun-item-active': active == index}" :key="index" v-on:click="showContent(index)">
                 <div id="lineHight" v-html="order.orderName"></div>
             </div>
         </div>
@@ -11,25 +11,23 @@
 
 <script>
     import right from "../right/right.vue";
-
+    let num = 0;
     export default {
         name: 'left',
         props: ['orders', 'order'],
         data(){
             return{
-                active:0
+                active:num
             }
         },
         methods: {
             showContent: function (index) {
                 this.order = this.orders[index];
                 this.active = index;
-                console.log(this.order)
             }
         },
         components: {right},
-        mounted() {
-            console.log(this.order)
+        created() {
             this.order = this.order;
         }
 

@@ -18,11 +18,12 @@
             </li>
         </ul>
         <left v-bind:orders="orders" v-bind:order="order"></left>
-
+        <tip :isShow="true" :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
 <script type="text/javascript">
     import left from "./components/left/left.vue"
+    import tip from "./components/tip/tip.vue"
     import {ordertype} from "./assets/request"
 
     export default {
@@ -41,9 +42,9 @@
                     this.orderTypes = response.data;
                     this.orders = this.orderTypes[0].orders;
                     this.order = this.orderTypes[0].orders[0];
-                })
+                });
         },
-        components: {left},
+        components: {left,tip},
         methods: {
             changeLeft:function(index){
                 this.orders = this.orderTypes[index].orders;
