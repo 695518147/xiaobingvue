@@ -13,11 +13,12 @@
             </div>
         </div>
         <ul id="tab_header" class="nav nav-pills">
-            <li v-for="(orderType, index) in orderTypes" :key="orderType.id" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
+            <li v-for="(orderType, index) in orderTypes" :key="orderType.id" role="presentation"
+                :class="{'active':index===active}" v-on:click="changeLeft(index)">
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
         </ul>
-        <left v-bind:orders="orders" v-bind:order="order"></left>
+        <left></left>
         <tip :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
@@ -33,7 +34,12 @@
                 orderTypes: [],
                 orders: [],
                 order: {},
-                active:0
+                active: 0
+            }
+        },
+        provide() {
+            return {
+                app: this
             }
         },
         mounted() {
@@ -44,9 +50,9 @@
                     this.order = response.data[0].orders[0];
                 });
         },
-        components: {left,tip},
+        components: {left, tip},
         methods: {
-            changeLeft:function(index){
+            changeLeft: function (index) {
                 this.orders = this.orderTypes[index].orders;
                 this.active = index;
                 this.order = this.orderTypes[index].orders[0];
