@@ -31,11 +31,6 @@
     export default {
         name: "tip",
         props: {
-            isShow: {
-                type: Boolean,
-                default: true,
-                required: true
-            },
             widNum: {
                 type: Number,
                 default: 86.5
@@ -63,7 +58,8 @@
         },
         data(){
             return {
-                message:"aaaaaaa"
+                message:"",
+                isShow: false,
             }
         },
         methods: {
@@ -75,7 +71,14 @@
         created() {
             let that = this;
             tip().getTips().then(response => {
-                that.message = response.data[0].tipContent;
+                if (response.status == 200) {
+                    if (response.data) {
+                        that.message = response.data[0].tipContent;
+                        that.isShow = true;
+                    }else{
+                        that.isShow = false;
+                    }
+                }
             });
         }
     };

@@ -18,7 +18,7 @@
             </li>
         </ul>
         <left v-bind:orders="orders" v-bind:order="order"></left>
-        <tip :isShow="true" :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
+        <tip :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
 <script type="text/javascript">
@@ -40,8 +40,8 @@
             ordertype().getOrdertypes()
                 .then(response => {
                     this.orderTypes = response.data;
-                    this.orders = this.orderTypes[0].orders;
-                    this.order = this.orderTypes[0].orders[0];
+                    this.orders = response.data[0].orders;
+                    this.order = response.data[0].orders[0];
                 });
         },
         components: {left,tip},
