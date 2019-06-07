@@ -3,15 +3,16 @@ import App from './App.vue'
 import router from './router'
 
 
+import store from './store'
 Vue.config.productionTip = false;
 
 
+
 new Vue({
-    data: {
-        orderTypes: {},
-    },
+    store,
     router,
     render: h => h(App),
+    component: {},
 }).$mount('#app');
 
 

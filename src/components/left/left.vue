@@ -1,35 +1,33 @@
 <template>
     <div id="left">
         <div class="leftMeun show" id="leftMeun" style="overflow-y: scroll;">
-            <div v-for="(order,index) in app.orders" :class="{'meun-item':true, 'meun-item-active': active == index}"
+            <div v-for="(order,index) in orders" :class="{'meun-item':true, 'meun-item-active': active == index}"
                  :key="index" v-on:click="showContent(index)">
                 <div id="lineHight" v-html="order.orderName"></div>
             </div>
         </div>
-        <right v-bind:order="app.order"></right>
+        <right></right>
     </div>
 </template>
 
 <script>
     import right from "../right/right.vue";
 
-    let num = 0;
     export default {
         name: 'left',
-        inject: {
-            app: {
-                default: () => ({})
-            }
-        },
-        data() {
-            return {
-                active: num
+        computed: {
+            orders() {
+                return this.$store.state.orders;
+            },
+            active() {
+                return this.$store.state.leftActive;
             }
         },
         methods: {
             showContent: function (index) {
-                this.app.order = this.app.orders[index];
-                this.active = index;
+                this.$store.commit("leftActive", index);
+                this.$store.commit("order", index);
+
             }
         },
         components: {right},

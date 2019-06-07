@@ -20,7 +20,11 @@
 
 <script>
     export default {
-        name:"right",
-        props: ['order'],
+        name: "right",
+        computed: {
+            order() {
+                return this.$store.state.order;
+            }
+        },
     };
 </script>

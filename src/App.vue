@@ -1,4 +1,3 @@
-<!--suppress ALL -->
 <template>
     <div id="app">
         <div class="navbar navbar-default ace-save-state">
@@ -29,33 +28,29 @@
 
     export default {
         name: "app",
-        data() {
-            return {
-                orderTypes: [],
-                orders: [],
-                order: {},
-                active: 0
-            }
-        },
-        provide() {
-            return {
-                app: this
+        computed: {
+            orderTypes() {
+                return this.$store.state.orderTypes;
+            },
+            active() {
+                return this.$store.state.tabActive;
             }
         },
         mounted() {
             ordertype().getOrdertypes()
                 .then(response => {
-                    this.orderTypes = response.data;
-                    this.orders = response.data[0].orders;
-                    this.order = response.data[0].orders[0];
+                    this.$store.commit("ordertypes", response.data)
                 });
         },
         components: {left, tip},
         methods: {
             changeLeft: function (index) {
-                this.orders = this.orderTypes[index].orders;
-                this.active = index;
-                this.order = this.orderTypes[index].orders[0];
+                this.$store.commit("orders", index);
+                this.$store.commit("tabActive", index);
+                this.$store.commit("order", 0);
+                this.$store.commit("leftActive", 0);
+
+
             }
         }
     }
