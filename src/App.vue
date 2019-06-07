@@ -13,7 +13,7 @@
             </div>
         </div>
         <ul id="tab_header" class="nav nav-pills">
-            <li v-for="(orderType, index) in orderTypes" :key="index" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
+            <li v-for="(orderType, index) in orderTypes" :key="orderType.id" role="presentation" :class="{'active':index===active}" v-on:click="changeLeft(index)">
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
         </ul>
@@ -36,7 +36,7 @@
                 active:0
             }
         },
-        created() {
+        mounted() {
             ordertype().getOrdertypes()
                 .then(response => {
                     this.orderTypes = response.data;

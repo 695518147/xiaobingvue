@@ -68,7 +68,7 @@
                 this.$emit("on-close");
             }
         },
-        created() {
+        mounted() {
             let that = this;
             tip().getTips().then(response => {
                 if (response.status == 200) {
