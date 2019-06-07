@@ -78,8 +78,12 @@
                     } else {
                         that.isShow = false;
                     }
+                    //10秒自动关闭
+                    setInterval(that.closeMyself,10000);
                 }
             });
+
+
         }
     };
 </script>
