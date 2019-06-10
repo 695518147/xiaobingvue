@@ -4,8 +4,9 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript" defer>
     export default {
+        name:"admin",
         props: {
         },
     };

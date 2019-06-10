@@ -21,7 +21,7 @@
         <tip :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
-<script type="text/javascript">
+<script type="text/javascript" defer>
     import left from "../../components/left/left.vue"
     import tip from "../../components/tip/tip.vue"
     import {ordertype} from "../../assets/request"
