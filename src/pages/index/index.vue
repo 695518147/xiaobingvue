@@ -1,5 +1,5 @@
 <template>
-    <div id="home">
+    <div id="index">
         <div class="navbar navbar-default ace-save-state">
             <div class="navbar-container ace-save-state" id="navbar-container">
                 <div class="navbar-header">
@@ -22,12 +22,12 @@
     </div>
 </template>
 <script type="text/javascript">
-    import left from "./components/left/left.vue"
-    import tip from "./components/tip/tip.vue"
-    import {ordertype} from "./assets/request"
+    import left from "../../components/left/left.vue"
+    import tip from "../../components/tip/tip.vue"
+    import {ordertype} from "../../assets/request"
 
     export default {
-        name: "home",
+        name: "index",
         computed: {
             orderTypes() {
                 return this.$store.state.orderTypes;
@@ -59,11 +59,11 @@
 
 
 <style scoped >
-    @import url("./assets/bootstrap-jq/css/common.css");
-    @import url("./assets/bootstrap-jq/css/flat-ui.min.css");
-    @import url("./assets/bootstrap-jq/css/bootstrap.min.css");
-    @import url("./assets/bootstrap-jq/css/ace.min.css");
-    @import url("./assets/bootstrap-jq/css/fonts.googleapis.com.css");
-    @import url("./assets/user-defind/user-defined.css");
+    @import url("../../assets/bootstrap-jq/css/common.css");
+    @import url("../../assets/bootstrap-jq/css/flat-ui.min.css");
+    @import url("../../assets/bootstrap-jq/css/bootstrap.min.css");
+    @import url("../../assets/bootstrap-jq/css/ace.min.css");
+    @import url("../../assets/bootstrap-jq/css/fonts.googleapis.com.css");
+    @import url("../../assets/user-defind/user-defined.css");
 </style>
 
