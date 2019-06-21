@@ -5,10 +5,10 @@
                 <div class="col-md-12 column">
                     <div class="list-group">
 
-                        <div id="content2" class="list-group-item" v-html="order.orderTypeDescription" v-if="order.split">
+                        <div id="content2" class="list-group-item" v-html="order.orderDescription" v-if="order.split">
                         </div>
                         <hr v-if="order.split">
-                        <div id="content1" class="list-group-item" v-html="order.orderDescription">
+                        <div id="content1" class="list-group-item" v-html="order.orderTypeDescription">
 
                         </div>
                     </div>
