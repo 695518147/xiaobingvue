@@ -27,7 +27,8 @@
         name: "right",
         computed: {
             order() {
-                return this.$store.state.order;
+                //解决闪现undefind
+                return this.$store.state.order.id == undefined ? {split:"",orderTypeDescription:"",orderDescription:""} : this.$store.state.order;;
             }
         },
         methods: {
