@@ -11,5 +11,6 @@ services:
     volumes:
       - ./nginx/log:/var/log/nginx
       - ./dist/:/usr/share/nginx/html/
+      - ./admin/:/usr/share/nginx/html/admin/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     command: /bin/bash -c "nginx -g 'daemon off;'"
