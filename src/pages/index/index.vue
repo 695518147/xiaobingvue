@@ -12,22 +12,30 @@
             </div>
         </div>
         <ul id="tab_header" class="nav nav-pills">
-            <li v-for="(orderType, index) in orderTypes" :key="orderType.id" role="presentation"
+            <li v-for="(orderType, index) in initordertypes" :key="orderType.id" role="presentation"
                 :class="{'active':index===active}" v-on:click="changeLeft(index)">
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
         </ul>
-        <keep-alive><left></left></keep-alive>
+        <keep-alive>
+            <left :initorders="initorders"></left>
+        </keep-alive>
         <tip :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
 <script type="text/javascript" defer>
     import left from "../../components/left/left.vue"
     import tip from "../../components/tip/tip.vue"
-    import {ordertype} from "../../assets/request"
+    import {ordertype, ordertypelist} from "../../assets/request"
 
     export default {
         name: "index",
+        data() {
+            return {
+                initordertypes: [],
+                initorders:[]
+            }
+        },
         computed: {
             orderTypes() {
                 return this.$store.state.orderTypes;
@@ -37,6 +45,11 @@
             }
         },
         beforeCreate() {
+            ordertypelist().getOrdertypeList().then(response => {
+                this.initordertypes = response.data
+            });
+        },
+        mounted() {
             ordertype().getOrdertypes()
                 .then(response => {
                     this.$store.commit("ordertypes", response.data)
@@ -56,7 +69,7 @@
 </script>
 
 
-<style scoped >
+<style scoped>
     @import url("../../assets/bootstrap-jq/css/common.css");
     @import url("../../assets/bootstrap-jq/css/flat-ui.min.css");
     @import url("../../assets/bootstrap-jq/css/bootstrap.min.css");

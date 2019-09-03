@@ -24,3 +24,11 @@ export function ordertype(){
     }
 }
 
+export function ordertypelist(){
+    return {
+        //获取所有类型
+        async getOrdertypeList(){
+            return await axios.get( INDEX_BASE_URL + '/xiaobing/orderType/list');
+        }
+    }
+}
