@@ -3,7 +3,6 @@ import axios from "axios"
 'use strict';
 
 const INDEX_BASE_URL =process.env.VUE_APP_INDEX_BASE_URL;
-const SERVICE_BASE_URL =process.env.VUE_APP_SERVICE_BASE_URL;
 
 export function tip() {
 
@@ -25,10 +24,3 @@ export function ordertype(){
     }
 }
 
-export function order(){
-    return {
-        async getOrders(){
-            return await axios.get(INDEX_BASE_URL + '/xiaobing/order');
-        }
-    }
-}

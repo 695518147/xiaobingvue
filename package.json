@@ -9,10 +9,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "core-js": "^2.6.5",
-    "jQuery": "^1.7.4",
+    "jsdom": "^15.1.1",
     "location": "0.0.1",
     "navigator": "^1.0.1",
+    "node-html-parser": "^1.1.16",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "xmlhttprequest": "^1.8.0"

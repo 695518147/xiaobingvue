@@ -17,7 +17,7 @@
                 <a href="#" v-html="orderType.orderTypeName"></a>
             </li>
         </ul>
-        <left></left>
+        <keep-alive><left></left></keep-alive>
         <tip :widNum="86.5" :leftSite="6.5" :topDistance="20" :pdt="22" :pdb="47"></tip>
     </div>
 </template>
@@ -36,7 +36,7 @@
                 return this.$store.state.tabActive;
             }
         },
-        mounted() {
+        beforeCreate() {
             ordertype().getOrdertypes()
                 .then(response => {
                     this.$store.commit("ordertypes", response.data)
@@ -49,8 +49,6 @@
                 this.$store.commit("tabActive", index);
                 this.$store.commit("order", 0);
                 this.$store.commit("leftActive", 0);
-
-
             }
         }
     }
