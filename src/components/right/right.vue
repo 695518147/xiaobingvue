@@ -41,7 +41,6 @@
                 if (this.$store.state.order.split) {
                     let dom_content2 = document.getElementById("content2")
                     this.parse(dom_content2, this.$store.state.order.orderDescription)
-
                 }
                 let dom_content1 = document.getElementById("content1")
                 this.parse(dom_content1, this.$store.state.order.orderTypeDescription)
@@ -51,32 +50,22 @@
         },
         methods: {
             parse(dom, description) {
-                dom.innerHTML = description;
                 let p_width = dom.clientWidth
-                parseNode(dom.childNodes, p_width)
-            },
-
+                const $ = cheerio.load(description)
+                $("img").each((index, node) => {
+                    if (node.tagName == "img") {
+                        let c_width = $(node).attr("width")
+                        if (c_width < p_width) {
+                            $("img").css("width", c_width + 'px')
+                        } else {
+                            let height = $(node).attr('height') * (p_width * 1.0 / c_width)
+                            $("img").css("height", height + 'px')
+                        }
+                    }
+                })
+                dom.innerHTML = $('body').html()
+            }
         }
     };
-
-    function parseNode(nodes, p_width) {
-
-        Array.prototype.forEach.call(nodes, function (node) {
-
-            if (node.tagName == "IMG") {
-                let c_width = node.getAttribute("width")
-
-                if (c_width < p_width) {
-                    node.style.width = c_width + 'px'
-                } else {
-                    let height = node.clientHeight * (p_width * 1.0 / c_width)
-                    node.style.height = height + 'px'
-                }
-            }
-            if (node.childNodes.length != 0) {
-                parseNode(node.childNodes, p_width)
-            }
-        });
-    }
 
 </script>
